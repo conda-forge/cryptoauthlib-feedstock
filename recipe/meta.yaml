@@ -11,13 +11,14 @@ source:
   sha256: 7ba14be47fab98091741a33f669ef18d914a8c19d261fac5929afeef80f7baa5
 
 build:
-  number: 0
-  skip: true  # [linux]
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - cmake
+    - {{ cdt('libudev-devel') }}  # [linux and cdt_name=='cos6']
+    - {{ cdt('systemd-devel') }}  # [linux and cdt_name=='cos7']
     - {{ compiler('c') }}
   host:
     - pip
@@ -26,6 +27,8 @@ requirements:
     - wheel
   run:
     - enum34  # [py<34]
+    - patchelf  # [linux]
+    - libusb  # [linux]
     - python
 
 test:
