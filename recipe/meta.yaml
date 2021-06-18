@@ -17,8 +17,8 @@ build:
 requirements:
   build:
     - cmake
-    - {{ cdt('libudev-devel') }} # [linux and cdt_name=='cos6']
-    - {{ cdt('systemd-devel') }} # [linux and cdt_name=='cos7']
+    - {{ cdt('libudev-devel') }}  # [linux and cdt_name=='cos6']
+    - {{ cdt('systemd-devel') }}  # [linux and cdt_name=='cos7']
     - {{ compiler('c') }}
   host:
     - pip
@@ -27,7 +27,7 @@ requirements:
     - wheel
   run:
     - enum34  # [py<34]
-    - patchelf # [linux]
+    - patchelf  # [linux]
     - libusb  # [linux]
     - python
 
