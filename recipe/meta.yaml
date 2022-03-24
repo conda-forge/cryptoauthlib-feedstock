@@ -17,6 +17,7 @@ build:
 requirements:
   build:
     - make # [linux]
+    - libudev # [linux]
     - cmake
     - {{ cdt('libudev-devel') }}  # [linux and cdt_name=='cos6']
     - {{ cdt('systemd-devel') }}  # [linux and cdt_name=='cos7']
@@ -31,7 +32,7 @@ requirements:
   run:
     - enum34  # [py<34]
     - patchelf  # [linux]
-    - libusb  # [linux]
+    - libudev  # [linux]
     - python
 
 test:
