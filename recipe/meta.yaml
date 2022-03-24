@@ -16,8 +16,8 @@ build:
 
 requirements:
   build:
-    - make # [linux]
-    - libudev # [linux]
+    - make  # [linux]
+    - libudev  # [linux]
     - cmake
     - {{ cdt('libudev-devel') }}  # [linux and cdt_name=='cos6']
     - {{ cdt('systemd-devel') }}  # [linux and cdt_name=='cos7']
