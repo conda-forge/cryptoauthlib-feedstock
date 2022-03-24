@@ -1,5 +1,5 @@
 {% set name = "cryptoauthlib" %}
-{% set version = "20211006" %}
+{% set version = "20220320" %}
 
 
 package:
@@ -8,17 +8,21 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cryptoauthlib-{{ version }}.tar.gz
-  sha256: dd524325922677defbbf737956be08ae501d12546d0e61eaf0d5ba48e1f90fe4
+  sha256: a4ce22c9c6c96213f87f92db1ab4b37b8eb0bcb792ad9d5d72e285e4c63ff30a
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
+    - make  # [linux]
+    - libudev  # [linux]
     - cmake
     - {{ cdt('libudev-devel') }}  # [linux and cdt_name=='cos6']
     - {{ cdt('systemd-devel') }}  # [linux and cdt_name=='cos7']
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - pip
@@ -28,7 +32,7 @@ requirements:
   run:
     - enum34  # [py<34]
     - patchelf  # [linux]
-    - libusb  # [linux]
+    - libudev  # [linux]
     - python
 
 test:
