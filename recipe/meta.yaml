@@ -1,5 +1,5 @@
 {% set name = "cryptoauthlib" %}
-{% set version = "20221018" %}
+{% set version = "20221104" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cryptoauthlib-{{ version }}.tar.gz
-  sha256: 97bc96c64d2095189a58761c7301b63c59ea21eb298e4d0a4e75f2bba5f4dabc
+  sha256: fb67a18b0f3e10628d9ad31cdf7d593af19f07928476616e02aac354e014f1c8
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
