@@ -1,11 +1,11 @@
-About cryptoauthlib
-===================
+About cryptoauthlib-feedstock
+=============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cryptoauthlib-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/MicrochipTech/cryptoauthlib
 
 Package license: Proprietary
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cryptoauthlib-feedstock/blob/main/LICENSE.txt)
 
 Summary: Python Wrapper Library for Microchip Security Products
 
