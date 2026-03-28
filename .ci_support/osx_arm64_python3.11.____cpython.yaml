@@ -14,10 +14,6 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-libsystemd:
-- '257'
-libudev:
-- '257'
 macos_machine:
 - arm64-apple-darwin20.0.0
 pin_run_as_build:

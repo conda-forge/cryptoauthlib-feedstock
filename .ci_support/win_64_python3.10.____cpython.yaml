@@ -6,10 +6,6 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-libsystemd:
-- '257'
-libudev:
-- '257'
 pin_run_as_build:
   python:
     min_pin: x.x
