@@ -32,7 +32,7 @@ requirements:
     - wheel
     - if: linux
       then:
-        - libsystemd
+        - libudev
   run:
     - python
 
