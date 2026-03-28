@@ -1,0 +1,56 @@
+schema_version: 1
+
+context:
+  version: 20250916
+
+package:
+  name: cryptoauthlib
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/c/cryptoauthlib/cryptoauthlib-${{ version }}.tar.gz
+  sha256: c73272d66f5e2fff7835b8872e92b41d8d9f4211ebfd38db854781922efc91ad
+
+build:
+  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - make
+    - cmake
+    - if: build_platform != target_platform
+      then: 
+        - python
+        - cross-python_${{ target_platform }}
+  host:
+    - pip
+    - python
+    - setuptools >=38.6.0
+    - wheel
+    - if: linux
+      then:
+        - libudev
+  run:
+    - python
+
+tests:
+  - python:
+      imports:
+        - cryptoauthlib
+  - script:
+      - python -c "from cryptoauthlib.library import get_size_by_name; get_size_by_name('ATCAIfaceCfg')"
+
+about:
+  summary: Python Wrapper Library for Microchip Security Products
+  license: LicenseRef-Proprietary
+  license_file: LICENSE.txt
+  homepage: https://github.com/MicrochipTech/cryptoauthlib
+  repository: https://github.com/MicrochipTech/cryptoauthlib
+
+extra:
+  recipe-maintainers:
+    - bryan-hunt
+    - KalyanCManukonda
