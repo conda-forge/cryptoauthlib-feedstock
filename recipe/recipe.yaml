@@ -32,11 +32,8 @@ requirements:
     - wheel
     - if: linux
       then:
-        - libudev
         - libsystemd
   run:
-    - if: linux
-      then: patchelf
     - python
 
 tests:
