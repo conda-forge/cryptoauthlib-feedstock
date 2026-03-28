@@ -16,23 +16,21 @@ build:
 
 requirements:
   build:
-    - make  # [linux]
-    - libudev  # [linux]
+    - {{ compiler('c') }}
+    - {{ stdlib('c') }}
+    - make
     - cmake
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - {{ compiler('c') }}
   host:
     - pip
     - python
     - setuptools >=38.6.0
     - wheel
-    - libudev                     # [linux and cdt_name=='cos6']
-    - libsystemd                  # [linux and cdt_name=='cos7']
+    - libudev
+    - libsystemd
   run:
-    - enum34  # [py<34]
     - patchelf  # [linux]
-    - libudev  # [linux]
     - python
 
 test:
